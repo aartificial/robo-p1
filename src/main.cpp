@@ -118,32 +118,42 @@ void setBinarizationStats(const int& binarizationType, int& lastBinarizationType
            4: Threshold to Zero Inverted
        */
 
+        int threshold;
+        int maxValue;
+
         switch (binarizationType) {
             case 0: {
-                cv::setTrackbarPos("Threshold", "imgBinarized", 127);
-                cv::setTrackbarPos("Max Value", "imgBinarized", 255);
+                threshold = 127;
+                maxValue = 255;
                 break;
             }
             case 1: {
-                cv::setTrackbarPos("Threshold", "imgBinarized", 127);
-                cv::setTrackbarPos("Max Value", "imgBinarized", 255);
+                threshold = 127;
+                maxValue = 255;
                 break;
             }
             case 2: {
-                cv::setTrackbarPos("Threshold", "imgBinarized", 127);
-                cv::setTrackbarPos("Max Value", "imgBinarized", 0);
+                threshold = 127;
+                maxValue = 0;
                 break;
             }
             case 3: {
-                cv::setTrackbarPos("Threshold", "imgBinarized", 127);
-                cv::setTrackbarPos("Max Value", "imgBinarized", 0);
+                threshold = 127;
+                maxValue = 0;
                 break;
             }
             case 4: {
-                cv::setTrackbarPos("Threshold", "imgBinarized", 127);
-                cv::setTrackbarPos("Max Value", "imgBinarized", 0);
+                threshold = 127;
+                maxValue = 0;
                 break;
             }
+            default: {
+                threshold = 0;
+                maxValue = 0;
+            }
         }
+
+        cv::setTrackbarPos("Threshold", "imgBinarized", threshold);
+        cv::setTrackbarPos("Max Value", "imgBinarized", maxValue);
     }
 }
